@@ -22,7 +22,7 @@
         <p class="min-w-[140px] text-zinc-500 text-sm">Compensation</p>
         <p class="text-zinc-700 text-lg">{{ $application->compensation }}</p>
     </div>
-<div class="flex items-center gap-4">
+    <div class="flex items-center gap-4">
         <p class="min-w-[140px] text-zinc-500 text-sm">Location</p>
         <p class="text-zinc-700 text-lg">{{ $application->location }}</p>
     </div>

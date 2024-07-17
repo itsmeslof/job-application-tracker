@@ -39,6 +39,14 @@ class ApplicationController extends Controller
             $request->validated()
         );
 
+        $event = $application->events()->make([
+            'title' => 'Application Created',
+        ]);
+
+        $event->editable = false;
+        $event->user_id = $request->user()->id;
+        $event->save();
+
         return to_route('applications.show', $application)
             ->with('status', 'Application Created');
     }
@@ -52,6 +60,7 @@ class ApplicationController extends Controller
 
         return view('applications.show', [
             'application' => $application,
+            'events' => $application->events()->get()->reverse(),
         ]);
     }
 

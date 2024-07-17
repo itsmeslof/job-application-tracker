@@ -41,6 +41,14 @@ class InProgressController extends Controller
         $application->closed_reason = "";
         $application->is_closed = false;
         $application->save();
+
+        $event = $application->events()->make([
+            'title' => 'Re-Opened Application',
+        ]);
+
+        $event->editable = false;
+        $event->user_id = $request->user()->id;
+        $event->save();
         
         return to_route('applications.show', $application);
     }

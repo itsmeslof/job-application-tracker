@@ -46,6 +46,17 @@ class ClosedController extends Controller
         $application->is_closed = true;
         $application->save();
 
+        $closedReason = $validated['closed_reason'] ?? 'No reason provided';
+
+        $event = $application->events()->make([
+            'title' => 'Closed Application',
+            'description' => "Reason: {$closedReason}",
+        ]);
+
+        $event->editable = false;
+        $event->user_id = $request->user()->id;
+        $event->save();
+
         return to_route('applications.show', $application);
     }
 }

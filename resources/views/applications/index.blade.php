@@ -31,14 +31,16 @@
 
             </div>
 
-            @foreach ($applications as $application)
+            @forelse ($applications as $application)
                 <x-application-card
                     :application="$application"
                     :links="[
                         'Manage Application' => route('applications.show', $application),
                     ]"
                 />
-            @endforeach
+            @empty
+                <p class="text-zinc-700 font-medium text-lg">No applications found</p>
+            @endforelse
         </div>
     </div>
 </x-app-layout>

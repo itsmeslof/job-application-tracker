@@ -1,8 +1,8 @@
-<x-app-layout title="Delete Application">
+<x-app-layout title="Delete Event">
     <x-slot name="header">
         <div class="w-full flex justify-between items-center">
             <h2 class="font-semibold text-xl text-zinc-800 leading-tight">
-                {{ __('Delete Application') }}
+                {{ __('Delete Event') }}
             </h2>
         </div>
     </x-slot>
@@ -14,22 +14,23 @@
                     <section>
                         <header>
                             <h2 class="text-lg font-medium text-zinc-900">
-                                Are you sure you want to delete this Application? All data will be lost. This action can not be reversed.
+                                Are you sure you want to delete this Event? This action can not be reversed.
                             </h2>
                         </header>
 
-                        <form method="post" action="{{ route('applications.destroy', $application) }}" class="flex flex-col mt-6 gap-y-6 max-w-xl">
+                        <form method="post" action="{{ route('applications.events.destroy', [$application, $event]) }}" class="flex flex-col mt-6 gap-y-6 max-w-xl">
                             @csrf
                             @method('DELETE')
                     
                             <div class="flex items-center gap-4">
-                                <x-danger-button>{{ __('Delete Application') }}</x-danger-button>
+                                <x-danger-button>{{ __('Delete Event') }}</x-danger-button>
                             </div>
                         </form>
                     </section>
                 </div>
             </div>
 
+            <x-application-event-card :event="$event" />
             <x-application-card :application="$application" />
         </div>
     </div>
