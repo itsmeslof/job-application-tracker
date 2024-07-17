@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +19,4 @@ Route::get('/', function () {
 
 require __DIR__.'/web/profile.php';
 require __DIR__.'/web/applications.php';
-// require __DIR__.'/web/admin.php';
 require __DIR__.'/auth.php';
