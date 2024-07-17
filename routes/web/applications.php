@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Application\ClosedController as ClosedApplicationController;
 use App\Http\Controllers\Application\InProgressController as InProgressApplicationController;
+use App\Http\Controllers\Application\DeleteController as DeleteApplicationController;
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('/applications')->as('applications.')->group(function () {
@@ -25,6 +25,9 @@ Route::middleware('auth')->prefix('/applications')->as('applications.')->group(f
     Route::get('/{application}/edit', [ApplicationController::class, 'edit'])
         ->name('edit');
     
+    Route::get('/{application}/delete', [DeleteApplicationController::class, 'show'])
+        ->name('delete');
+    
     Route::patch('/{application}', [ApplicationController::class, 'update'])
         ->name('update');
     
@@ -37,4 +40,7 @@ Route::middleware('auth')->prefix('/applications')->as('applications.')->group(f
         ->name('open');
     
     Route::post('/{application}/open', [InProgressApplicationController::class, 'store']);
+
+    Route::delete('/{application}', [ApplicationController::class, 'destroy'])
+        ->name('destroy');
 });
