@@ -12,7 +12,7 @@
     @if ($event->description)
         <div class="flex items-start gap-4">
             <p class="min-w-[140px] text-zinc-500">Description</p>
-            <p class="text-zinc-700">{{ $event->description }}</p>
+            <p class="text-zinc-700 whitespace-pre-line" data-extract-links>{{ $event->description }}</p>
         </div>
     @endif
 

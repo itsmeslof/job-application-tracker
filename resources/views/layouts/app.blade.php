@@ -34,5 +34,20 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script>
+            const elems = document.querySelectorAll('[data-extract-links]');
+            const linkClasses = "text-sky-600 hover:text-sky-500 transition duration-150 ease underline";
+
+            elems.forEach((elem) => {
+                const text = elem.innerHTML;
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+                elem.innerHTML = text.replace(
+                    urlRegex,
+                    (url) => `<a class="${linkClasses}" href="${url}">${url}</a>`
+                );
+            });
+        </script>
     </body>
 </html>
