@@ -10,22 +10,28 @@
             In Progress
         </div>
     @endif
-    <div class="flex items-center gap-4">
-        <p class="min-w-[140px] text-zinc-500 text-sm">Company</p>
-        <p class="text-zinc-700 text-lg">{{ $application->company }}</p>
+    <div class="flex items-start gap-4">
+        <p class="min-w-[140px] text-zinc-500">Company</p>
+        <p class="text-zinc-700">{{ $application->company }}</p>
     </div>
-    <div class="flex items-center gap-4">
-        <p class="min-w-[140px] text-zinc-500 text-sm">Role</p>
-        <p class="text-zinc-700 text-lg">{{ $application->role }}</p>
+    <div class="flex items-start gap-4">
+        <p class="min-w-[140px] text-zinc-500">Role</p>
+        <p class="text-zinc-700">{{ $application->role }}</p>
     </div>
-    <div class="flex items-center gap-4">
-        <p class="min-w-[140px] text-zinc-500 text-sm">Compensation</p>
-        <p class="text-zinc-700 text-lg">{{ $application->compensation }}</p>
+    <div class="flex items-start gap-4">
+        <p class="min-w-[140px] text-zinc-500">Compensation</p>
+        <p class="text-zinc-700">{{ $application->compensation }}</p>
     </div>
-    <div class="flex items-center gap-4">
-        <p class="min-w-[140px] text-zinc-500 text-sm">Location</p>
-        <p class="text-zinc-700 text-lg">{{ $application->location }}</p>
+    <div class="flex items-start gap-4">
+        <p class="min-w-[140px] text-zinc-500">Location</p>
+        <p class="text-zinc-700">{{ $application->location }}</p>
     </div>
+    @if ($application->description)
+        <div class="flex items-start gap-4">
+            <p class="min-w-[140px] text-zinc-500">Description</p>
+            <p class="text-zinc-700 whitespace-pre-line" data-extract-links>{{ $application->description }}</p>
+        </div>
+    @endif
 
     @if (!empty($links))
         <div class="flex items-center gap-4">

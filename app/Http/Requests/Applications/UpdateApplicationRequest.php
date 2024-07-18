@@ -18,6 +18,7 @@ class UpdateApplicationRequest extends FormRequest
             'role' => ['sometimes', 'required', 'string', 'max:255'],
             'compensation' => ['sometimes', 'required', 'string', 'max:255'],
             'location' => ['sometimes', 'required', 'string', 'max:255'],
+            'description' => ['sometimes', 'nullable', 'string', 'max:30000']
         ];
     }
 }

@@ -29,7 +29,7 @@ class ApplicationEventController extends Controller
 
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'description' => ['nullable', 'string', 'max:20000'], // research TEXT max
+            'description' => ['nullable', 'string', 'max:30000'],
         ]);
 
         $event = $application->events()->make($validated);
@@ -64,7 +64,7 @@ class ApplicationEventController extends Controller
 
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'description' => ['nullable', 'string', 'max:20000'],
+            'description' => ['nullable', 'string', 'max:30000'],
         ]);
 
         $event->update($validated);

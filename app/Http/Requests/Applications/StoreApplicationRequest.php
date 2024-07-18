@@ -20,6 +20,7 @@ class StoreApplicationRequest extends FormRequest
             'role' => ['required', 'string', 'max:255'],
             'compensation' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:30000']
         ];
     }
 }

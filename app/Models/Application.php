@@ -22,6 +22,7 @@ class Application extends Model
         'role',
         'compensation',
         'location',
+        'description'
     ];
 
     /**

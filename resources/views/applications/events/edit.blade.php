@@ -46,6 +46,12 @@
                                     class="mt-1 block w-full" 
                                     :value="old('description', $event->description)"
                                 />
+                                <p class="block font-medium text-sm text-zinc-700 mt-1">
+                                    The description fields preserves whitespace and extracts urls that match the following pattern:
+                                    <span class="bg-zinc-300 rounded-md px-2 inline-block text-zinc-900">
+                                        http://&lt;text&gt;, https://&lt;text&gt;
+                                    </span>
+                                </p>
 
                                 <x-input-error class="mt-2" :messages="$errors->get('description')" />
                             </div>

@@ -78,6 +78,25 @@
 
                                 <x-input-error class="mt-2" :messages="$errors->get('location')" />
                             </div>
+
+                            <div>
+                                <x-input-label for="description" :value="__('Description (optional)')" />
+                                <x-textarea-input
+                                    id="description"
+                                    name="description" 
+                                    type="text" 
+                                    class="mt-1 block w-full" 
+                                    :value="old('description', $application->description)"
+                                />
+                                <p class="block font-medium text-sm text-zinc-700 mt-1">
+                                    The description fields preserves whitespace and extracts urls that match the following pattern:
+                                    <span class="bg-zinc-300 rounded-md px-2 inline-block text-zinc-900">
+                                        http://&lt;text&gt;, https://&lt;text&gt;
+                                    </span>
+                                </p>
+
+                                <x-input-error class="mt-2" :messages="$errors->get('description')" />
+                            </div>
                     
                             <div class="flex items-center gap-4">
                                 <x-primary-button>{{ __('Save Application') }}</x-primary-button>
